@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.2.0'
 
-gem 'rails', '~> 7.0.4'
-
-gem 'sqlite3', '~> 1.4'
-
+gem 'dry-matcher', '~> 1.0.0'
+gem 'dry-monads', '~> 1.6.0'
+gem 'dry-schema', '~> 1.13.0'
+gem 'gepub', '~> 1.0.15'
 gem 'puma', '~> 6.0'
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
+gem 'rails', '~> 7.0.4'
 gem 'ruby-readability', '~> 0.7.0'
-
 gem 'sinatra', '~> 3.0.5'
-
+gem 'sqlite3', '~> 1.4'
 gem 'typhoeus', '~> 1.4.0'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -26,7 +26,4 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.17', require: false
   gem 'rubocop-rspec', '~> 2.11', require: false
   gem 'simplecov', '~> 0.21.2', require: false, group: :test
-end
-
-group :development do
 end
