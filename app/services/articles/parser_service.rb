@@ -23,7 +23,7 @@ module Articles
         document = Readability::Document.new(response.response_body, tags: %w[h1 h2 h3 h4 h5 h6 div p img],
                                                                      attributes: %w[src h1 h2 h3 h4 h5 h6], remove_empty_nodes: false)
 
-        Success(title: document.title, content: format_content(document.content))
+        Success(title: document.title, content: format_content(document.content), cover_image: document.images.first)
       end
     end
 

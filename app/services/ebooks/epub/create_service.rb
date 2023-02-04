@@ -27,6 +27,8 @@ module Ebooks
                          lang: 'en',
                          file_as: params[:title],
                          display_seq: 1
+          cover_image = URI.open(params[:cover_image])
+          book.add_item('img/cover_image.jpg', content: cover_image).cover_image
           book.ordered do
             item = book.add_item('text/chap1.xhtml')
             item.add_content StringIO.new(content_with_title(params))
@@ -40,6 +42,10 @@ module Ebooks
 
       def filename(file_name)
         "#{file_name.parameterize.underscore}#{FILE_FORMAT}"
+      end
+
+      def content_with_title(params)
+        "<h1>#{params[:title]}</h1>#{params[:content]}"
       end
     end
   end
